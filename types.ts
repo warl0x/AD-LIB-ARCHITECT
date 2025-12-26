@@ -22,16 +22,23 @@ export enum ArtistStyle {
   HORROR = 'Horror (Eerie, dark, cinematic)'
 }
 
+export interface LyricSuggestion {
+  originalLine: string;
+  suggestedChange: string;
+  reason: string;
+}
+
 export interface AdLibResponse {
   annotatedLyrics: string;
   generalAdLibs: string[];
   vibeAnalysis: string;
   signatureCall: string;
+  lyricSuggestions: LyricSuggestion[];
 }
 
 export interface AppState {
   lyrics: string;
-  style: ArtistStyle;
+  styles: ArtistStyle[];
   loading: boolean;
   result: AdLibResponse | null;
   error: string | null;
